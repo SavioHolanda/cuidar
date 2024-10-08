@@ -1,7 +1,7 @@
 package ultis;
 
-import Pages.FaleTela;
-import Pages.LoginTela;
+import pages.FaleTela;
+import pages.LoginTela;
 import io.appium.java_client.AppiumDriver;
 
 import java.net.MalformedURLException;
