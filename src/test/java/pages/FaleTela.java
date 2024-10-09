@@ -87,6 +87,10 @@ public class FaleTela {
         linkFale.click();
     }
 
+    public void espere(int numero) throws InterruptedException {
+            Thread.sleep(numero * 1000L);
+    }
+
     public void escreverNome(String nome) {
         campoNome.click();
         campoNome.sendKeys(nome);

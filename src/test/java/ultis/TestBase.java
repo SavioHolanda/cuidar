@@ -25,4 +25,8 @@ public class TestBase {
             driver.quit();
         }
     }
+
+    public void espere(int numero) throws InterruptedException {
+        Thread.sleep(numero * 1000L);
+    }
 }
