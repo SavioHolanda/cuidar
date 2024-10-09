@@ -20,13 +20,13 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement btnAvancar;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Seja bem-vindo ao Cuid@r autocuidado\"]")
-    //@iOSFindBy(xpath = "xx");
-    private WebElement txtBoasVindas;
-
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"CPF\"]")
     //@iOSFindBy(xpath = "xx");
     private WebElement campoCpf;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"481.354.840-70\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement campoCpflimpar;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Avançar\"]")
     //@iOSFindBy(xpath = "xx");
@@ -64,6 +64,18 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement txt3;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Por favor, aguarde! Estamos buscando suas informações.\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement msnTela1;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Falta pouco! Estamos buscando suas configurações visuais.\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement msnTela2;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Reta final! Estamos buscando suas funcionalidades.\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement msnTela3;
+
     public void clickBtnAvancarBemVindo() {
         for (int i = 0; i < 3; i++) {
             btnAvancar.click();
@@ -85,11 +97,7 @@ public class LoginTela {
         }
     }
 
-    public String textoBoasVindas(){
-        return txtBoasVindas.getText();
-    }
-
-    public void selecionarEmpresa(){
+    public void selecionarEmpresaNHG(){
         btnSelecionarEmpresa.click();
     }
 
@@ -130,5 +138,25 @@ public class LoginTela {
             txtbemvindo.add(txt2.getText());
             txtbemvindo.add(txt3.getText());
         return txtbemvindo;
+    }
+
+    public String msnTela1(){
+        return msnTela1.getText();
+    }
+
+    public String msnTela2(){
+        return msnTela2.getText();
+    }
+
+    public String msnTela3(){
+        return msnTela3.getText();
+    }
+
+    public void campoCpfLimpar(){
+        campoCpflimpar.clear();
+    }
+
+    public String campoCpfLimparTxt(){
+        return campoCpflimpar.getText();
     }
 }

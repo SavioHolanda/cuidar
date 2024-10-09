@@ -1,6 +1,7 @@
 package ultis;
 
 import pages.FaleTela;
+import pages.HomeTela;
 import pages.LoginTela;
 import io.appium.java_client.AppiumDriver;
 
@@ -11,6 +12,7 @@ public class TestBase {
     protected AppiumDriver<?> driver;
     protected LoginTela loginTela;
     protected FaleTela faleTela;
+    protected HomeTela homeTela;
 
     public void setUp() throws MalformedURLException {
         CapabilitiesManager capabilitiesManager = new CapabilitiesManager();
@@ -18,6 +20,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         loginTela = new LoginTela(driver);
         faleTela = new FaleTela(driver);
+        homeTela = new HomeTela(driver);
     }
 
     public void tearDown() {
