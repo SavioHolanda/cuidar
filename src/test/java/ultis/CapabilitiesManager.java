@@ -29,7 +29,7 @@ public class CapabilitiesManager {
 
     private AppiumDriver<RemoteWebElement> getAndroidDriver() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app", "C:\\RepositórioNHG\\apps\\homolog-container\\1.build_61\\app-release.apk");
+        capabilities.setCapability("app", "C:\\RepositórioNHG\\apps\\homolog-container\\2.build_61\\cuidar_homolog_new_sdk.apk");
         capabilities.setCapability("deviceName", "ZF5245R8X4");
         capabilities.setCapability("platformName", "Android");
 
@@ -38,7 +38,7 @@ public class CapabilitiesManager {
 
     private AppiumDriver<RemoteWebElement> getIOSDriver() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app", "C:\\RepositórioNHG\\apps\\homolog-container\\1.1.38\\app-release.apk");
+        capabilities.setCapability("app", "C:\\RepositórioNHG\\apps\\homolog-container\\2.build_61\\cuidar_homolog_new_sdk.apk");
         capabilities.setCapability("deviceName", "ZF5245R8X4");
         capabilities.setCapability("platformName", "iOS");
 

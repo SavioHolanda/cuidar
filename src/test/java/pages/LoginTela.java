@@ -16,10 +16,6 @@ public class LoginTela {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup[2]")
-    //@iOSFindBy(xpath = "xx");
-    private WebElement btnAvancar;
-
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"CPF\"]")
     //@iOSFindBy(xpath = "xx");
     private WebElement campoCpf;
@@ -48,7 +44,7 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement btnEntrar;
 
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup")
+    @AndroidFindBy(xpath = "//android.widget.ScrollView")
     //@iOSFindBy(xpath = "xx");
     private WebElement visualizarEmpresas;
 
@@ -76,11 +72,13 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement msnTela3;
 
-    public void clickBtnAvancarBemVindo() {
-        for (int i = 0; i < 3; i++) {
-            btnAvancar.click();
-        }
-    }
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"O processo falhou.\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement msnSenhaInvalida;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Usuário não encontrado ou senha incorreta.\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement msnSenhaInvalida1;
 
     public void escreverCampoCpf(String cpf){
         campoCpf.click();
@@ -158,5 +156,9 @@ public class LoginTela {
 
     public String campoCpfLimparTxt(){
         return campoCpflimpar.getText();
+    }
+
+    public String mensagemSenhaInvalida() {
+        return msnSenhaInvalida.getText() + " " + msnSenhaInvalida1.getText();
     }
 }

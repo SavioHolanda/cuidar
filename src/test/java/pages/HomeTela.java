@@ -12,7 +12,7 @@ public class HomeTela {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"PERMITIR\"]")
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_message")
     //@iOSFindBy(xpath = "xx");
     private WebElement txtHome;
 

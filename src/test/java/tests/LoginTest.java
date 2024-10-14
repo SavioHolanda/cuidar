@@ -19,10 +19,10 @@ public class LoginTest extends TestBase {
     }
 
     @Test
-    public void testRealizarOPreenchimentoDoCampoCPFComCPFCadastradoEmMaisDeUmaEntidadeEClicarEmAvancar(){
-        loginTela.clickBtnAvancarBemVindo();
+    public void testRealizarOPreenchimentoDoCampoCPFComCPFCadastradoEmMaisDeUmaEntidadeEClicarEmAvancar() throws InterruptedException {
         loginTela.escreverCampoCpf("46393153091");
         loginTela.clickBtnAvancar();
+        espere(3);
         loginTela.visualizarEmpresas();
 
         List<String> empresas = loginTela.visualizarEmpresas();
@@ -33,7 +33,6 @@ public class LoginTest extends TestBase {
 
     @Test
     public void testRealizarOPreenchimentoDoCampoCPFComCPFCadastradoEmApenasUmaEntidadeEClicarEmAvancar(){
-        loginTela.clickBtnAvancarBemVindo();
         loginTela.escreverCampoCpf("48135484070");
         loginTela.clickBtnAvancar();
 
@@ -41,26 +40,8 @@ public class LoginTest extends TestBase {
     }
 
     @Test
-    public void testRealizarONaoPreenchimentoDoCampoCpfEClicarEmAvancar(){
-        loginTela.clickBtnAvancarBemVindo();
-        loginTela.escreverCampoCpf("48135484070");
+    public void testRealizarONaoPreenchimentoDoCampoCpfEClicarEmAvancar() {
         loginTela.clickBtnAvancar();
-
-        Assert.assertEquals("Seja bem-vindo ao Cuid@r autocuidado", loginTela.txtBemVindo());
-    }
-
-    @Test
-    public void testRealizarOPreenchimentoDoCampoCpfComCaracteresEspeciaisEClicarEmAvancar(){
-        loginTela.clickBtnAvancarBemVindo();
-        loginTela.escreverCampoCpf(",.-");
-        loginTela.clickBtnAvancar();
-
-        Assert.assertEquals("CPF", loginTela.txtBemVindo());
-    }
-
-    @Test
-    public void testRealizarAValidacaoDoTextoDeBoasVindas(){
-        loginTela.clickBtnAvancarBemVindo();
 
         List<String> empresas = loginTela.visualizarTxt();
         List<String> empresasEsperadas = Arrays.asList("Seja bem-vindo ao Cuid@r autocuidado", "Você terá acesso gratuito à nossa plataforma inteligente, dedicada a cuidar da sua saúde e bem-estar!", "Preencha seu CPF para iniciar sua experiência.");
@@ -69,8 +50,23 @@ public class LoginTest extends TestBase {
     }
 
     @Test
+    public void testRealizarOPreenchimentoDoCampoCpfComCaracteresEspeciaisEClicarEmAvancar(){
+        loginTela.escreverCampoCpf(",.-");
+        loginTela.clickBtnAvancar();
+
+        Assert.assertEquals("CPF", loginTela.textoCampoCpf());
+    }
+
+    @Test
+    public void testRealizarAValidacaoDoTextoDeBoasVindas(){
+        List<String> empresas = loginTela.visualizarTxt();
+        List<String> empresasEsperadas = Arrays.asList("Seja bem-vindo ao Cuid@r autocuidado", "Você terá acesso gratuito à nossa plataforma inteligente, dedicada a cuidar da sua saúde e bem-estar!", "Preencha seu CPF para iniciar sua experiência.");
+
+        Assert.assertTrue(empresas.containsAll(empresasEsperadas));
+    }
+
+    @Test
     public void testRealizarLoginComSucessoComUmUsuarioCadastradoemApenasUmaentidade() {
-        loginTela.clickBtnAvancarBemVindo();
         loginTela.escreverCampoCpf("48135484070");
         loginTela.clickBtnAvancar();
         loginTela.escreverSenha("Fale1234@");
@@ -79,12 +75,12 @@ public class LoginTest extends TestBase {
         Assert.assertEquals("Por favor, aguarde! Estamos buscando suas informações.", loginTela.msnTela1());
         Assert.assertEquals("Falta pouco! Estamos buscando suas configurações visuais.", loginTela.msnTela2());
         Assert.assertEquals("Reta final! Estamos buscando suas funcionalidades.", loginTela.msnTela3());
-        Assert.assertEquals("PERMITIR", homeTela.txtValidarAcessoAHome());
+
+        Assert.assertEquals("Permitir que o app Cuid@r autocuidado envie notificações?", homeTela.txtValidarAcessoAHome());
     }
 
     @Test
     public void testRealizarLoginComSucessoComUmUsuarioCadastradoemMaisDeUmaentidade() {
-        loginTela.clickBtnAvancarBemVindo();
         loginTela.escreverCampoCpf("02971008312");
         loginTela.clickBtnAvancar();
         loginTela.selecionarEmpresaNHG();
@@ -95,27 +91,37 @@ public class LoginTest extends TestBase {
         Assert.assertEquals("Por favor, aguarde! Estamos buscando suas informações.", loginTela.msnTela1());
         Assert.assertEquals("Falta pouco! Estamos buscando suas configurações visuais.", loginTela.msnTela2());
         Assert.assertEquals("Reta final! Estamos buscando suas funcionalidades.", loginTela.msnTela3());
-        Assert.assertEquals("PERMITIR", homeTela.txtValidarAcessoAHome());
+
+        Assert.assertEquals("Permitir que o app Cuid@r autocuidado envie notificações?", homeTela.txtValidarAcessoAHome());
     }
 
     @Test
-    public void testRealizarLoginAlterandoOCpfDoCampoCpf() {
-        loginTela.clickBtnAvancarBemVindo();
+    public void testRealizarLoginAlterandoOCpfDoCampoCpf() throws InterruptedException {
         loginTela.escreverCampoCpf("48135484070");
         loginTela.clickBtnAvancar();
         loginTela.campoCpfLimpar();
+        espere(2);
 
         Assert.assertEquals("481.354.840-70", loginTela.campoCpfLimparTxt());
     }
 
     @Test
     public void testRealizarLoginComOCampoSenhaEmBranco() {
-        loginTela.clickBtnAvancarBemVindo();
         loginTela.escreverCampoCpf("48135484070");
         loginTela.clickBtnAvancar();
         loginTela.clickBtnEntrar();
 
         Assert.assertEquals("481.354.840-70", loginTela.campoCpfLimparTxt());
+    }
+
+    @Test
+    public void testRealizarLoginComASenhaInvalida() {
+        loginTela.escreverCampoCpf("48135484070");
+        loginTela.clickBtnAvancar();
+        loginTela.escreverSenha("senhaInvalida");
+        loginTela.clickBtnEntrar();
+
+        Assert.assertEquals("O processo falhou. Usuário não encontrado ou senha incorreta.", loginTela.mensagemSenhaInvalida());
     }
 
     @After

@@ -17,7 +17,6 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmProblemaTecnicoCorretamentePreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviando(){
-                loginTela.clickBtnAvancarBemVindo();
                 faleTela.clicarLinkFale();
                 faleTela.escreverNome("Fulado de tal");
                 faleTela.escreverCelular("99999999999");
@@ -31,7 +30,6 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmProblemaTecnicoInvalidoNaoPreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviando(){
-                loginTela.clickBtnAvancarBemVindo();
                 faleTela.clicarLinkFale();
                 faleTela.escreverNome("");
                 faleTela.escreverCelular("");
@@ -49,7 +47,6 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmProblemaComCaracteresespeciaisOuLetrasNoCampoTelefone(){
-                loginTela.clickBtnAvancarBemVindo();
                 faleTela.clicarLinkFale();
                 faleTela.escreverCelular("%./@!test,");
                 faleTela.cttViaTelOuEmail();
@@ -59,7 +56,6 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmCliqueNoBotaoCancelar(){
-                loginTela.clickBtnAvancarBemVindo();
                 faleTela.clicarLinkFale();
                 faleTela.clicarBtnCancelar();
 
@@ -68,7 +64,6 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmProblemaTecnicoCorretamentePreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviandoNaTelaDeLogin() throws InterruptedException {
-                loginTela.clickBtnAvancarBemVindo();
                 loginTela.escreverCampoCpf("48135484070");
                 loginTela.clickBtnAvancar();
                 espere(2);
@@ -85,7 +80,6 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmProblemaTecnicoInvalidoNaoPreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviandoNaTelaDeLogin() throws InterruptedException {
-                loginTela.clickBtnAvancarBemVindo();
                 loginTela.escreverCampoCpf("48135484070");
                 loginTela.clickBtnAvancar();
                 espere(2);
@@ -106,7 +100,6 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmProblemaComCaracteresespeciaisOuLetrasNoCampoTelefoneNaTelaDeLogin() throws InterruptedException {
-                loginTela.clickBtnAvancarBemVindo();
                 loginTela.escreverCampoCpf("48135484070");
                 loginTela.clickBtnAvancar();
                 espere(2);
@@ -119,14 +112,13 @@ public class FaleTest extends TestBase {
 
         @Test
         public void testRelatarUmCliqueNoBotaoCancelarNaTelaDeLogin() throws InterruptedException {
-                loginTela.clickBtnAvancarBemVindo();
                 loginTela.escreverCampoCpf("48135484070");
                 loginTela.clickBtnAvancar();
                 espere(2);
                 faleTela.clicarLinkFale();
                 faleTela.clicarBtnCancelar();
 
-                Assert.assertEquals("CPF",loginTela.textoCampoCpf());
+                Assert.assertEquals("481.354.840-70", loginTela.campoCpfLimparTxt());
         }
 
         @After
