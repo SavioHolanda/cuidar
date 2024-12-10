@@ -80,6 +80,66 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement msnSenhaInvalida1;
 
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement termoUso;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Aceitar\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement aceitarTermoUso;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Usuário titular \"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoNome;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Titular\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoSobrenome;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"10/09/1996\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoNascimento;
+
+    @AndroidFindBy(xpath = "//android.view.View[@text=\"Masculino\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstBtnSexoMasculino;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"(01) 10011-9999\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoTelefone;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"ruht2083@uorak.com\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoEmail;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"61.932-600\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoCep;
+
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"root\"]/android.view.View/android.view.View/android.view.View/android.widget.EditText[3]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoCepVazio;
+
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"root\"]/android.view.View/android.view.View/android.view.View/android.widget.EditText[4]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoEndereco;
+
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"root\"]/android.view.View/android.view.View/android.view.View/android.widget.EditText[5]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoCidade;
+
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"root\"]/android.view.View/android.view.View/android.view.View/android.widget.EditText[6]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoEstado;
+
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"root\"]/android.view.View/android.view.View/android.view.View/android.widget.EditText[7]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstCampoNumero;
+
+    @AndroidFindBy(xpath = "//android.widget.Button[@text=\"Enviar\"]")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement firstBtnEnviar;
+
     public void escreverCampoCpf(String cpf){
         campoCpf.click();
         campoCpf.sendKeys(cpf);
@@ -95,6 +155,10 @@ public class LoginTela {
         }
     }
 
+    public void btnAvancar(){
+        btnAvancarLogin.click();
+    }
+
     public void selecionarEmpresaNHG(){
         btnSelecionarEmpresa.click();
     }
@@ -106,6 +170,7 @@ public class LoginTela {
     public void escreverSenha(String senha){
         campoSenha.sendKeys(senha);
     }
+
     public String campoSenha(){
         return campoSenha.getText();
     }
@@ -161,4 +226,65 @@ public class LoginTela {
     public String mensagemSenhaInvalida() {
         return msnSenhaInvalida.getText() + " " + msnSenhaInvalida1.getText();
     }
+
+    public void clickTermoUso() {
+        termoUso.click();
+    }
+
+    public void clickAceitarTermoUso() {
+        aceitarTermoUso.click();
+    }
+
+    public void escreverCampoNome(String nome) {
+        firstCampoNome.sendKeys(nome);
+    }
+
+    public void escreverCampoSobrenome(String sobrenome) {
+        firstCampoSobrenome.sendKeys(sobrenome);
+    }
+
+    public void escreverCampoNascimento(String sobrenome) {
+        firstCampoNascimento.sendKeys(sobrenome);
+    }
+
+    public void selecionarSexoBiologico() {
+        firstBtnSexoMasculino.click();
+    }
+
+    public void escreverCampoTelefone(String telefone) {
+        firstCampoTelefone.sendKeys(telefone);
+    }
+
+    public void escreverCampoEmail(String email) {
+        firstCampoEmail.sendKeys(email);
+    }
+
+    public void limparCampoCep() {
+        firstCampoCep.clear();
+    }
+
+    public void escreverCampoCep(String cep) {
+        firstCampoCepVazio.sendKeys(cep);
+    }
+
+    public void escreverCampoEndereco(String endereco) {
+        firstCampoEndereco.sendKeys(endereco);
+    }
+
+    public void escreverCampoCidade(String cidade) {
+        firstCampoCidade.sendKeys(cidade);
+    }
+
+    public void escreverCampoEstado(String estado) {
+        firstCampoEstado.sendKeys(estado);
+    }
+
+    public void escreverCampoNumero(String numero) {
+        firstCampoNumero.sendKeys(numero);
+    }
+
+    public void clicarBtnEnviar() {
+        firstBtnEnviar.click();
+    }
+
 }

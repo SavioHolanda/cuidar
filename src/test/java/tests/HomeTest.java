@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.After;
 import org.junit.Before;
-import ultis.TestBase;
+import utils.TestBase;
 
 import java.net.MalformedURLException;
 

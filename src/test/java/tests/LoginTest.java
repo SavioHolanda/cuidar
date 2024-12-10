@@ -4,14 +4,15 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import pages.HomeTela;
-import ultis.TestBase;
+import utils.Api;
+import utils.TestBase;
 
 import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.List;
 
 public class LoginTest extends TestBase {
+    Api api = new Api();
 
     @Before
     public void setUpTest() throws MalformedURLException {
@@ -122,6 +123,34 @@ public class LoginTest extends TestBase {
         loginTela.clickBtnEntrar();
 
         Assert.assertEquals("O processo falhou. Usuário não encontrado ou senha incorreta.", loginTela.mensagemSenhaInvalida());
+    }
+
+    @Test
+    public void testRealizarOPreenchimentoDoCampoCpfComUmCpfCadastradoEmApenasUmaEmpresaSendoOPrimeiroAcessoComFirstAcess() throws InterruptedException {
+        api.LoginTela("62302731018","360");
+        loginTela.escreverCampoCpf("62302731018");
+        loginTela.clickBtnAvancar();
+        espere(2);
+        loginTela.clickTermoUso();
+        loginTela.clickAceitarTermoUso();
+        loginTela.selecionarSexoBiologico();
+        movimentacoes();
+        loginTela.escreverCampoEndereco("Rua Luiz Gonzaga dos Santos");
+        loginTela.escreverCampoCidade("Maracanaú");
+        loginTela.escreverCampoEstado("CE");
+        loginTela.escreverCampoNumero("555");
+        movimentacoes();
+        loginTela.clicarBtnEnviar();
+        espere(2);
+        loginTela.btnAvancar();
+        loginTela.escreverSenha("Fale1234@");
+        loginTela.clickBtnEntrar();
+
+        Assert.assertEquals("Por favor, aguarde! Estamos buscando suas informações.", loginTela.msnTela1());
+        Assert.assertEquals("Falta pouco! Estamos buscando suas configurações visuais.", loginTela.msnTela2());
+        Assert.assertEquals("Reta final! Estamos buscando suas funcionalidades.", loginTela.msnTela3());
+
+        Assert.assertEquals("Permitir que o app Cuid@r autocuidado envie notificações?", homeTela.txtValidarAcessoAHome());
     }
 
     @After

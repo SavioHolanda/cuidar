@@ -1,4 +1,4 @@
-package ultis;
+package utils;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -29,8 +29,9 @@ public class CapabilitiesManager {
 
     private AppiumDriver<RemoteWebElement> getAndroidDriver() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app", "C:\\RepositórioNHG\\apps\\homolog-container\\2.build_61\\cuidar_homolog_new_sdk.apk");
-        capabilities.setCapability("deviceName", "ZF5245R8X4");
+        capabilities.setCapability("app", "C:\\RepositórioNHG\\apps\\homolog-container\\2.build_61\\cuidar_homolog.apk");
+        //capabilities.setCapability("deviceName", "ZF5245R8X4"); // Device Fisico
+        capabilities.setCapability("deviceName", "emulator-5554"); // Device emulador
         capabilities.setCapability("platformName", "Android");
 
         return new AndroidDriver<RemoteWebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);

@@ -2,7 +2,7 @@ package runners;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import pages.HomeTela;
+import tests.EsqueciMinhaSenhaTest;
 import tests.FaleTest;
 import tests.HomeTest;
 import tests.LoginTest;
@@ -11,6 +11,7 @@ import tests.LoginTest;
 @Suite.SuiteClasses({
         LoginTest.class,
         FaleTest.class,
+        EsqueciMinhaSenhaTest.class,
         HomeTest.class,
 })
 public class SuiteTest {
