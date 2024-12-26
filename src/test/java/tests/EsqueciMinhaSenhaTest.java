@@ -18,7 +18,7 @@ public class EsqueciMinhaSenhaTest extends TestBase {
     @Test
     public void testDigitarUmCpfCadastradoNoCampoDigiteSeuCfEEnvialo(){
         loginTela.escreverCampoCpf("30480525005");
-        loginTela.clickBtnAvancar();
+        loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf("30480525005");
         esqueciMinhaSenhaTela.clickbtnEnviar();
@@ -35,7 +35,7 @@ public class EsqueciMinhaSenhaTest extends TestBase {
     @Test
     public void testDigitarUmCPfNaoCadastradoNoCampoDigiteSeuCpfEEnvialo(){
         loginTela.escreverCampoCpf("30480525005");
-        loginTela.clickBtnAvancar();
+        loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf("14457748912");
         esqueciMinhaSenhaTela.clickbtnEnviar();
@@ -46,7 +46,7 @@ public class EsqueciMinhaSenhaTest extends TestBase {
     @Test
     public void testDigitarLetrasECaracteresEspeciaisNoCampoDigiteSeuCpf(){
         loginTela.escreverCampoCpf("30480525005");
-        loginTela.clickBtnAvancar();
+        loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf(",.-a");
         esqueciMinhaSenhaTela.clickbtnEnviar();
@@ -57,7 +57,7 @@ public class EsqueciMinhaSenhaTest extends TestBase {
     @Test
     public void testDeixarOCampoDigiteSeuCpfEmBranco(){
         loginTela.escreverCampoCpf("30480525005");
-        loginTela.clickBtnAvancar();
+        loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf("");
         esqueciMinhaSenhaTela.clickbtnEnviar();
@@ -68,7 +68,7 @@ public class EsqueciMinhaSenhaTest extends TestBase {
     @Test
     public void testDigitarUmCpfIncompletoNoCampoDigiteSeuCpf(){
         loginTela.escreverCampoCpf("30480525005");
-        loginTela.clickBtnAvancar();
+        loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf("0297");
         esqueciMinhaSenhaTela.clickbtnEnviar();

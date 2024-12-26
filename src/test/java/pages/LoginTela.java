@@ -16,7 +16,7 @@ public class LoginTela {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"CPF\"]")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Digite seu CPF\"]")
     //@iOSFindBy(xpath = "xx");
     private WebElement campoCpf;
 
@@ -24,7 +24,7 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement campoCpflimpar;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Avançar\"]")
+    @AndroidFindBy(accessibility = "Avançar")
     //@iOSFindBy(xpath = "xx");
     private WebElement btnAvancarLogin;
 
@@ -48,17 +48,13 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement visualizarEmpresas;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Seja bem-vindo ao Cuid@r autocuidado\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Bem-vindo(a) ao nosso app!\"]")
     //@iOSFindBy(xpath = "xx");
     private WebElement txtBemVindo;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Você terá acesso gratuito à nossa plataforma inteligente, dedicada a cuidar da sua saúde e bem-estar!\"]")
     //@iOSFindBy(xpath = "xx");
     private WebElement txt2;
-
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Preencha seu CPF para iniciar sua experiência.\"]")
-    //@iOSFindBy(xpath = "xx");
-    private WebElement txt3;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Por favor, aguarde! Estamos buscando suas informações.\"]")
     //@iOSFindBy(xpath = "xx");
@@ -149,12 +145,6 @@ public class LoginTela {
         return campoCpf.getText();
     }
 
-    public void clickBtnAvancar(){
-        for (int i = 0; i < 2; i++) {
-            btnAvancarLogin.click();
-        }
-    }
-
     public void btnAvancar(){
         btnAvancarLogin.click();
     }
@@ -199,7 +189,6 @@ public class LoginTela {
         List<String> txtbemvindo = new ArrayList<>();
             txtbemvindo.add(txtBemVindo.getText());
             txtbemvindo.add(txt2.getText());
-            txtbemvindo.add(txt3.getText());
         return txtbemvindo;
     }
 

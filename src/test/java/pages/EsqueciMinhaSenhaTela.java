@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class EsqueciMinhaSenhaTela {
@@ -12,7 +13,7 @@ public class EsqueciMinhaSenhaTela {
     }
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Esqueceu sua senha?\"]")
-    //@iOSFindBy(xpath = "xx");
+    //@FindBy(xpath = "//XCUIElementTypeButton[@name='Login']")
     private WebElement esqueceuSuaSenha;
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Digite seu CPF\"]")

@@ -59,13 +59,13 @@ public class FaleTest extends TestBase {
                 faleTela.clicarLinkFale();
                 faleTela.clicarBtnCancelar();
 
-                Assert.assertEquals("CPF",loginTela.textoCampoCpf());
+                Assert.assertEquals("Digite seu CPF",loginTela.textoCampoCpf());
         }
 
         @Test
         public void testRelatarUmProblemaTecnicoCorretamentePreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviandoNaTelaDeLogin() throws InterruptedException {
                 loginTela.escreverCampoCpf("48135484070");
-                loginTela.clickBtnAvancar();
+                loginTela.btnAvancar();
                 espere(2);
                 faleTela.clicarLinkFale();
                 faleTela.escreverNome("Fulado de tal");
@@ -81,7 +81,7 @@ public class FaleTest extends TestBase {
         @Test
         public void testRelatarUmProblemaTecnicoInvalidoNaoPreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviandoNaTelaDeLogin() throws InterruptedException {
                 loginTela.escreverCampoCpf("48135484070");
-                loginTela.clickBtnAvancar();
+                loginTela.btnAvancar();
                 espere(2);
                 faleTela.clicarLinkFale();
                 faleTela.escreverNome("");
@@ -101,7 +101,7 @@ public class FaleTest extends TestBase {
         @Test
         public void testRelatarUmProblemaComCaracteresespeciaisOuLetrasNoCampoTelefoneNaTelaDeLogin() throws InterruptedException {
                 loginTela.escreverCampoCpf("48135484070");
-                loginTela.clickBtnAvancar();
+                loginTela.btnAvancar();
                 espere(2);
                 faleTela.clicarLinkFale();
                 faleTela.escreverCelular("%./@!test,");
@@ -113,7 +113,7 @@ public class FaleTest extends TestBase {
         @Test
         public void testRelatarUmCliqueNoBotaoCancelarNaTelaDeLogin() throws InterruptedException {
                 loginTela.escreverCampoCpf("48135484070");
-                loginTela.clickBtnAvancar();
+                loginTela.btnAvancar();
                 espere(2);
                 faleTela.clicarLinkFale();
                 faleTela.clicarBtnCancelar();
