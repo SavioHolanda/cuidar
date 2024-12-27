@@ -16,7 +16,15 @@ public class HomeTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement txtHome;
 
+    @AndroidFindBy(accessibility = "MEUS DADOS")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement btnMeusDados;
+
     public String txtValidarAcessoAHome(){
         return txtHome.getText();
+    }
+
+    public void clicarMeusDados() {
+        btnMeusDados.click();
     }
 }

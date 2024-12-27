@@ -136,6 +136,14 @@ public class LoginTela {
     //@iOSFindBy(xpath = "xx");
     private WebElement firstBtnEnviar;
 
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement permicaoDuranteUsoApp;
+
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
+    //@iOSFindBy(xpath = "xx");
+    private WebElement ClicarPermicaoNotificacao;
+
     public void escreverCampoCpf(String cpf){
         campoCpf.click();
         campoCpf.sendKeys(cpf);
@@ -274,6 +282,18 @@ public class LoginTela {
 
     public void clicarBtnEnviar() {
         firstBtnEnviar.click();
+    }
+
+    public void ClicarPermicaoLocalizacaoDuranteUsoApp(){
+        permicaoDuranteUsoApp.click();
+    }
+
+    public void ClicarPermicaoNotificacao(){
+        ClicarPermicaoNotificacao.click();
+    }
+
+    public void ClicarPermicaoFotoVideoDuranteUsoApp(){
+        permicaoDuranteUsoApp.click();
     }
 
 }

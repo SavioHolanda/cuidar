@@ -29,7 +29,7 @@ public class CapabilitiesManager {
 
     private AppiumDriver<RemoteWebElement> getAndroidDriver() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app", "/Users/savioholanda/Documents/apps/cuidar/cuidar_homolog_78.apk");
+        capabilities.setCapability("app", "/Users/savioholanda/Documents/apps/cuidar/cuidar.apk");
         //capabilities.setCapability("deviceName", "ZF5245R8X4"); // Device Fisico
         capabilities.setCapability("deviceName", "Pixel_9_Pro_API_35"); // Device emulador
         capabilities.setCapability("platformName", "Android");

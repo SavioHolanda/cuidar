@@ -3,10 +3,7 @@ package utils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import pages.EsqueciMinhaSenhaTela;
-import pages.FaleTela;
-import pages.HomeTela;
-import pages.LoginTela;
+import pages.*;
 import io.appium.java_client.AppiumDriver;
 
 import java.net.MalformedURLException;
@@ -20,6 +17,7 @@ public class TestBase {
     protected FaleTela faleTela;
     protected HomeTela homeTela;
     protected EsqueciMinhaSenhaTela esqueciMinhaSenhaTela;
+    protected MeusDadosTela meusDadosTela;
 
     public void setUp() throws MalformedURLException {
         CapabilitiesManager capabilitiesManager = new CapabilitiesManager();
@@ -29,6 +27,7 @@ public class TestBase {
         faleTela = new FaleTela(driver);
         homeTela = new HomeTela(driver);
         esqueciMinhaSenhaTela = new EsqueciMinhaSenhaTela(driver);
+        meusDadosTela = new MeusDadosTela(driver);
     }
 
     public void tearDown() {
