@@ -1,27 +1,20 @@
 package tests;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import utils.Api;
 import utils.TestBase;
 
-import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.List;
 
 public class LoginTest extends TestBase {
     Api api = new Api();
 
-    @Before
-    public void setUpTest() throws MalformedURLException {
-        setUp();
-    }
-
     @Test
     public void testRealizarOPreenchimentoDoCampoCPFComCPFCadastradoEmMaisDeUmaEntidadeEClicarEmAvancar() throws InterruptedException {
         loginTela.escreverCampoCpf("46393153091");
+        loginTela.btnAvancar();
         loginTela.btnAvancar();
         espere(3);
         loginTela.visualizarEmpresas();
@@ -79,7 +72,7 @@ public class LoginTest extends TestBase {
         Assert.assertEquals("Falta pouco! Estamos buscando suas configurações visuais.", loginTela.msnTela2());
         Assert.assertEquals("Reta final! Estamos buscando suas funcionalidades.", loginTela.msnTela3());
 
-        Assert.assertEquals("Permitir que o app Cuid@r autocuidado acesse a localização deste dispositivo?", homeTela.txtValidarAcessoAHome());
+        Assert.assertEquals("Permitir que o app MDS Cuidar autocuidado acesse a localização deste dispositivo?", homeTela.txtValidarAcessoAHome());
     }
 
     @Test
@@ -96,7 +89,7 @@ public class LoginTest extends TestBase {
         Assert.assertEquals("Falta pouco! Estamos buscando suas configurações visuais.", loginTela.msnTela2());
         Assert.assertEquals("Reta final! Estamos buscando suas funcionalidades.", loginTela.msnTela3());
 
-        Assert.assertEquals("Permitir que o app Cuid@r autocuidado acesse a localização deste dispositivo?", homeTela.txtValidarAcessoAHome());
+        Assert.assertEquals("Permitir que o app MDS Cuidar autocuidado acesse a localização deste dispositivo?", homeTela.txtValidarAcessoAHome());
     }
 
     @Test
@@ -124,6 +117,7 @@ public class LoginTest extends TestBase {
     public void testRealizarLoginComASenhaInvalida() {
         loginTela.escreverCampoCpf("48135484070");
         loginTela.btnAvancar();
+        loginTela.btnAvancar();
         loginTela.escreverSenha("senhaInvalida");
         loginTela.clickBtnEntrar();
 
@@ -135,17 +129,18 @@ public class LoginTest extends TestBase {
         api.LoginTela("62302731018","360");
         loginTela.escreverCampoCpf("62302731018");
         loginTela.btnAvancar();
-        loginTela.btnAvancar();
+        loginTela.btnAvancar(); 
         espere(2);
         loginTela.clickTermoUso();
         loginTela.clickAceitarTermoUso();
         loginTela.selecionarSexoBiologico();
-        movimentacoes();
+        //movimentacoes();
+        scroll(0.5, 0.8, 0.5, 0.2); 
         loginTela.escreverCampoEndereco("Rua Luiz Gonzaga dos Santos");
         loginTela.escreverCampoCidade("Maracanaú");
         loginTela.escreverCampoEstado("CE");
         loginTela.escreverCampoNumero("555");
-        movimentacoes();
+        //movimentacoes();
         loginTela.clicarBtnEnviar();
         espere(2);
         loginTela.btnAvancar();
@@ -156,11 +151,6 @@ public class LoginTest extends TestBase {
         Assert.assertEquals("Falta pouco! Estamos buscando suas configurações visuais.", loginTela.msnTela2());
         Assert.assertEquals("Reta final! Estamos buscando suas funcionalidades.", loginTela.msnTela3());
 
-        Assert.assertEquals("Permitir que o app Cuid@r autocuidado acesse a localização deste dispositivo?", homeTela.txtValidarAcessoAHome());
-    }
-
-    @After
-    public void tearDownTest() {
-        tearDown();
+        Assert.assertEquals("Permitir que o app MDS Cuidar autocuidado acesse a localização deste dispositivo?", homeTela.txtValidarAcessoAHome());
     }
 }

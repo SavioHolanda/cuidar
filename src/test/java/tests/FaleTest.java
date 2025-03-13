@@ -1,19 +1,12 @@
 package tests;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import utils.TestBase;
 
-import java.net.MalformedURLException;
-
 public class FaleTest extends TestBase {
 
-        @Before
-        public void setUpTest() throws MalformedURLException {
-            setUp();
-        }
+        private static final String CAMPO_VAZIO = "";
 
         @Test
         public void testRelatarUmProblemaTecnicoCorretamentePreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviando(){
@@ -31,10 +24,10 @@ public class FaleTest extends TestBase {
         @Test
         public void testRelatarUmProblemaTecnicoInvalidoNaoPreenchendoOsCamposNomeTelefoneEmailProblemaEMsnEEnviando(){
                 faleTela.clicarLinkFale();
-                faleTela.escreverNome("");
-                faleTela.escreverCelular("");
-                faleTela.escreverEmail("");
-                faleTela.escreverOcorrencia("");
+                faleTela.escreverNome(CAMPO_VAZIO);
+                faleTela.escreverCelular(CAMPO_VAZIO);
+                faleTela.escreverEmail(CAMPO_VAZIO);
+                faleTela.escreverOcorrencia(CAMPO_VAZIO);
                 faleTela.cttViaTelOuEmail();
                 faleTela.clicarBtnEnviar();
 
@@ -84,10 +77,10 @@ public class FaleTest extends TestBase {
                 loginTela.btnAvancar();
                 espere(2);
                 faleTela.clicarLinkFale();
-                faleTela.escreverNome("");
-                faleTela.escreverCelular("");
-                faleTela.escreverEmail("");
-                faleTela.escreverOcorrencia("");
+                faleTela.escreverNome(CAMPO_VAZIO);
+                faleTela.escreverCelular(CAMPO_VAZIO);
+                faleTela.escreverEmail(CAMPO_VAZIO);
+                faleTela.escreverOcorrencia(CAMPO_VAZIO);
                 faleTela.cttViaTelOuEmail();
                 faleTela.clicarBtnEnviar();
 
@@ -119,10 +112,5 @@ public class FaleTest extends TestBase {
                 faleTela.clicarBtnCancelar();
 
                 Assert.assertEquals("481.354.840-70", loginTela.campoCpfLimparTxt());
-        }
-
-        @After
-        public void tearDownTest() {
-        tearDown();
         }
 }

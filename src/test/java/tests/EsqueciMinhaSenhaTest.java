@@ -1,26 +1,20 @@
 package tests;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import utils.TestBase;
 
-import java.net.MalformedURLException;
-
 public class EsqueciMinhaSenhaTest extends TestBase {
 
-    @Before
-    public void setUpTest() throws MalformedURLException {
-        setUp();
-    }
+    private static final String CAMPO_CPF_STRING = "30480525005";
 
     @Test
     public void testDigitarUmCpfCadastradoNoCampoDigiteSeuCfEEnvialo(){
-        loginTela.escreverCampoCpf("30480525005");
+        loginTela.escreverCampoCpf(CAMPO_CPF_STRING);
+        loginTela.btnAvancar();
         loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
-        esqueciMinhaSenhaTela.escreverCpf("30480525005");
+        esqueciMinhaSenhaTela.escreverCpf(CAMPO_CPF_STRING);
         esqueciMinhaSenhaTela.clickbtnEnviar();
 
         Assert.assertEquals("Sucesso!Sua senha foi atualizada com sucesso!\n" +
@@ -34,10 +28,11 @@ public class EsqueciMinhaSenhaTest extends TestBase {
 
     @Test
     public void testDigitarUmCPfNaoCadastradoNoCampoDigiteSeuCpfEEnvialo(){
-        loginTela.escreverCampoCpf("30480525005");
+        loginTela.escreverCampoCpf(CAMPO_CPF_STRING);
+        loginTela.btnAvancar();
         loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
-        esqueciMinhaSenhaTela.escreverCpf("14457748912");
+        esqueciMinhaSenhaTela.escreverCpf("02977711112");
         esqueciMinhaSenhaTela.clickbtnEnviar();
 
         Assert.assertEquals("Atenção!Usuário não encontrado.",esqueciMinhaSenhaTela.msnUsuarioNaoEncontrado());
@@ -45,7 +40,8 @@ public class EsqueciMinhaSenhaTest extends TestBase {
 
     @Test
     public void testDigitarLetrasECaracteresEspeciaisNoCampoDigiteSeuCpf(){
-        loginTela.escreverCampoCpf("30480525005");
+        loginTela.escreverCampoCpf(CAMPO_CPF_STRING);
+        loginTela.btnAvancar();
         loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf(",.-a");
@@ -56,7 +52,8 @@ public class EsqueciMinhaSenhaTest extends TestBase {
 
     @Test
     public void testDeixarOCampoDigiteSeuCpfEmBranco(){
-        loginTela.escreverCampoCpf("30480525005");
+        loginTela.escreverCampoCpf(CAMPO_CPF_STRING);
+        loginTela.btnAvancar();
         loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf("");
@@ -67,17 +64,13 @@ public class EsqueciMinhaSenhaTest extends TestBase {
 
     @Test
     public void testDigitarUmCpfIncompletoNoCampoDigiteSeuCpf(){
-        loginTela.escreverCampoCpf("30480525005");
+        loginTela.escreverCampoCpf(CAMPO_CPF_STRING);
+        loginTela.btnAvancar();
         loginTela.btnAvancar();
         esqueciMinhaSenhaTela.clickEqueceuSuaSenha();
         esqueciMinhaSenhaTela.escreverCpf("0297");
         esqueciMinhaSenhaTela.clickbtnEnviar();
 
         Assert.assertEquals("Digite o CPF completo",esqueciMinhaSenhaTela.txtCampoCpfIncompleto());
-    }
-
-    @After
-    public void tearDownTest() {
-        tearDown();
     }
 }
